@@ -22,6 +22,16 @@ body {
   padding: 5px;
 }
 
+header div:first-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header div:first-child span {
+  
+}
+
 h2 {
   font-size: 2.0rem;
   color: #2a9d8f;
@@ -41,3 +51,9 @@ hr {
   opacity: 0.3;
 }
 
+#today {
+  color: #2a9d8f;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: flex-end;
+}
