@@ -1,3 +1,6 @@
+/* Doni Brysoni Mbaga */
+
+
 * {
   margin: 0;
   padding: 0;
@@ -69,4 +72,8 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+footer svg {
+  fill: #bfbfbf;
 }
