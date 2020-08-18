@@ -7,9 +7,15 @@
   box-sizing: border-box;
 }
 
-::selection {
-  color: none;
-  background: none;
+header::selection {
+    color: none;
+    background: none;
+}
+
+/* For Mozilla Firefox */
+header::-moz-selection {
+    color: none;
+    background: none;
 }
 
 @font-face {
