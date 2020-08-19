@@ -1,5 +1,12 @@
 /* Doni Brysoni Mbaga */
 
+const ADDBTN = document.getElementById("addBtn");
+const RMVBTN = document.getElementById("rmvBtn");
+const MAIN = document.getElementsByTagName("main")[0];
+
+ADDBTN.addEventListener("click", addListItem);
+
+RMVBTN.addEventListener("click", rmvListItem);
 
 setInterval(showToday, 500);
 
@@ -9,40 +16,34 @@ function showToday() {
   document.getElementById("today").innerHTML = date + ", " + time;
 }
 
-const addBtn = document.getElementById("addBtn");
-addBtn.addEventListener("click", addListItem);
-
-const rmvBtn = document.getElementById("rmvBtn");
-rmvBtn.addEventListener("click", rmvListItem);
 
 function addListItem() {
-  const main = document.getElementsByTagName("main")[0];
 
-  if (main.childElementCount == 0) {
-    const listEl = document.createElement("input");
+  function addEl(el, parEl) {
+    const listEl = document.createElement(el);
     listEl.setAttribute("type", "text");
     listEl.setAttribute("class", "listItem");
     listEl.setAttribute("id", "list");
-    main.appendChild(listEl);
+    parEl.appendChild(listEl);
+  }
+
+  if (MAIN.childElementCount == 0) {
+    addEl("input", MAIN);
   } else { 
 
     const listItem = document.getElementById("list");
 
-    if (main.childElementCount == 1 && listItem.value == "") {
+    if (MAIN.childElementCount == 1 && listItem.value == "") {
        console.log("Fill that first");
     } 
 
-    else if (main.childElementCount == 1 && listItem.value != "") {
-      const listEl = document.createElement("input");
-      listEl.setAttribute("type", "text");
-      listEl.setAttribute("class", "listItem");
-      listEl.setAttribute("id", "list");
-      main.appendChild(listEl);
+    else if (MAIN.childElementCount == 1 && listItem.value != "") {
+      addEl("input", MAIN); 
     }
 
     else { 
  
-      if (main.childElementCount >= 2) {
+      if (MAIN.childElementCount >= 2) {
         const lastListItem = document.querySelector("input:last-child");
      
         if (lastListItem.value == "") {
@@ -50,11 +51,7 @@ function addListItem() {
         }
 
         else if (lastListItem.value =! "") {
-          const listEl = document.createElement("input");
-          listEl.setAttribute("type", "text");
-          listEl.setAttribute("class", "listItem");
-          listEl.setAttribute("id", "list");
-          main.appendChild(listEl);
+          addEl("input", MAIN);
         }
       }
     }
